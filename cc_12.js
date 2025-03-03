@@ -47,3 +47,29 @@ const metricCardArray = Array.from(metricCardNodeList)
 metricCardArray.forEach((card) => {
     card.style.backgroundColor = "cyan"
 })
+
+//Task 3 - Dynamic Inventory Management - Adding and Removing Items
+
+//Creating a function that adds a new item to an inventory list with the press of a button and deletes it when the product is pressed.
+function newInventoryItem (name) {
+    
+    //Selecting the inventory list.
+    const inventoryList = document.getElementById("inventoryList")
+
+    //Creating a new list item.
+    const newItem = document.createElement("li")
+
+    //Giving the list itme the class "product-item".
+    newItem.setAttribute("class", "product-item")
+
+    //Giving the item the same name as input at the beginning of the function.
+    newItem.textContent = name
+
+    //Adding an event listening so that when a product is clicked it deletes itself.
+    newItem.addEventListener("click", function () {
+        inventoryList.removeChild(newItem)
+    })
+
+    //Adding the new item to the inventory list using append child.
+    inventoryList.appendChild(newItem)
+}
