@@ -5,23 +5,31 @@ const dashboardContainer1 = document.getElementById("dashboard")
 const dashboardContainer2 = document.querySelector(".dashboard")
 
 //Creating a new elemnt using create element and the div tag.
-const revenueCard = document.createElement("div")
+function createMetricCard(id, title, amount) {
 
-//Using assign attibute to assign a class and an id to the new element.
-revenueCard.setAttribute("class", "metric-card")
-revenueCard.setAttribute("id", "revenueCard")
+    const metricCard = document.createElement("div")
 
-//Creating a new element, title, and adding the text content "Revenue".
-const title = document.createElement("h3")
-title.textContent = "Revenue"
+    //Using assign attibute to assign a class and an id to the new element.
+    metricCard.setAttribute("class", "metric-card")
+    metricCard.setAttribute("id", id)
 
-//Creating a new element, value, and adding the text content "$0".
-const value = document.createElement("p")
-value.textContent = "$0"
+    //Creating a new element, title, and adding the text content "Revenue".
+    const header = document.createElement("h3")
+    header.textContent = title
 
-//Adding the new elements to the revenue card using append child.
-revenueCard.appendChild(title)
-revenueCard.appendChild(value)
+    //Creating a new element, value, and adding the text content "$0".
+    const value = document.createElement("p")
+    value.textContent = `$${amount}`
 
+    //Adding the new elements to the revenue card using append child.
+    metricCard.appendChild(header)
+    metricCard.appendChild(value)
+
+    //Returning the created metric card.
+    return metricCard
+}
 //Adding the revenue card to the dashbobard container using append child.
-dashboardContainer1.appendChild(revenueCard)
+dashboardContainer1.appendChild(createMetricCard("revenueCard", "Revenue", 0))
+
+//Task 2 - Updating Dashboard Metics - Working with NodeLists and Arrays
+
