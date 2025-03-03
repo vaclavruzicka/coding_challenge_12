@@ -29,7 +29,21 @@ function createMetricCard(id, title, amount) {
     return metricCard
 }
 //Adding the revenue card to the dashbobard container using append child.
-dashboardContainer1.appendChild(createMetricCard("revenueCard", "Revenue", 0))
+dashboardContainer1.appendChild(createMetricCard("revenueCard", "Revenue", 1000))
 
 //Task 2 - Updating Dashboard Metics - Working with NodeLists and Arrays
 
+//Creating the two new metic cards, Profit and Expenses
+dashboardContainer1.appendChild(createMetricCard("profitCard", "Profit", 600))
+dashboardContainer1.appendChild(createMetricCard("expensesCard", "Expenses", 400))
+
+//Creating a  Node List for each metric card using it's class.
+const metricCardNodeList = document.querySelectorAll(".metric-card")
+
+//Converting the Node List into an Array so that I can use array methods.
+const metricCardArray = Array.from(metricCardNodeList)
+
+//Using the array method forEach in order to change each of the cards to be the color cyan.
+metricCardArray.forEach((card) => {
+    card.style.backgroundColor = "cyan"
+})
