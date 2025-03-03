@@ -73,3 +73,37 @@ function newInventoryItem (name) {
     //Adding the new item to the inventory list using append child.
     inventoryList.appendChild(newItem)
 }
+
+//Task 4 - Business Customer Section - Handling Event Bubbling
+
+//Selecting the customer section of the html document.
+const customerSection = document.getElementById("customerSection")
+
+//Creating a function that adds a customer card that returns a message when clicked.
+function createCustomerCard(name) {
+
+    //Setting the the customer to a div tag.
+    const customer = document.createElement("div")
+    
+    //Setting the class to "customer-card".
+    customer.setAttribute("class", "customer-card")
+
+    //Setting the text of the card to the name of the customer.
+    customer.textContent = name
+
+    //Adding an event listner so that when a card is clicked, it returns a note in the console log.
+    customer.addEventListener("click", (event) => {
+    console.log("Customer Card Clicked")
+
+    //Using stopPropagation to  not allow for event bubbling.
+    event.stopPropagation()
+    })
+
+    //Adding the customer card to the customer section using append child.
+    customerSection.appendChild(customer)
+}
+
+
+//Creating customer cards.
+createCustomerCard("John Smith")
+createCustomerCard("Jane Smith")
